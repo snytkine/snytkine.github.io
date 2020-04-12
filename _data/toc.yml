@@ -13,7 +13,7 @@
     - title: "Extras"
       url: "docs/extras"
       children:
-        - title: Quizzes
+        - title: Quizzes?
           url: "docs/extras/example-quiz"
         - title: Tags Page
           url: "tags"

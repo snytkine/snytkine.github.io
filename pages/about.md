@@ -10,6 +10,6 @@ on the Beautiful [Docsy](https://github.com/google/docsy) that renders with Hugo
 native deployment on GitHub pages. See the [respository]({{ site.repo }}) for more details.
 
 ## Support
-
+### Welcome
 If you need help, please don't hesitate to [open an issue](https://www.github.com/{{ site.github_repo }}/{{ site.github_user }}).
 
