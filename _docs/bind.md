@@ -1,14 +1,14 @@
 ---
-title: Getting Started
+title: Bind dependency injection container
 tags: 
- - jekyll
- - github
-description: Getting started with Docsy Jekyll
+ - bind
+ - container
+description: Bind Dependency Injection Container
 ---
 
-# Getting Started
+# Getting Started with Dependency Injection
 
-## Features
+## Concepts
 
 ### User Interaction
 
