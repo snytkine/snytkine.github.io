@@ -94,4 +94,5 @@ defaults:
     values:
       layout: "post"
 
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+theme: vsoch/docsy-jekyll
