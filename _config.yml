@@ -70,6 +70,18 @@ exclude: [_site, CHANGELOG.md, LICENSE, README.md, vendor]
 
 # Collections
 collections:
+  bind_rest:
+    output: true
+    permalink: /documentation/:collection/:path
+    nav_title: Bind-Rest
+    order: 1
+
+  bind:
+    output: true
+    permalink: /documentation/:collection/:path
+    nav_title: Bind
+    order: 2
+
   docs:
     output: true
     permalink: /:collection/:path

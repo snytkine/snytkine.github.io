@@ -1,5 +1,6 @@
 ---
 title: A Nested Page
+nav_title: Nested
 description: An example of a a nested page in a subfolder.
 ---
 

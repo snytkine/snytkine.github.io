@@ -1,7 +1,7 @@
 - title: Documentation
   url: docs
   links:
-    - title: "Introduction"
+    - title: "Introduction.md"
       url: "docs/introduction"
     - title: "Bind Container"
       url: "docs/bind"
@@ -15,7 +15,7 @@
     - title: "Bind-Rest"
       url: "docs/bind-rest"
       children:
-        - title: Introduction
+        - title: Introduction.md
           url: "docs/bind-rest/introduction"
         - title: Decorators
           url: "docs/bind-rest/decorators"

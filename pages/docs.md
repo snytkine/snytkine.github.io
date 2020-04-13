@@ -15,5 +15,10 @@ particular page.
     <div class="entry">
     <h5><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h5>
     <p>{{ post.description }}</p>
-    </div>{% endfor %}
+    <span>relative_path = {{ post.relative_path }}</span>
+    <span>collection = {{ post.collection }}</span>
+    <span>date = {{ post.date }}</span>
+    <i>{{ post.nav_title}}</i>
+    </div>
+    {% endfor %}
 </div>
