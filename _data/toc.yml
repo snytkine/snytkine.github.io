@@ -7,19 +7,17 @@
       url: "docs/bind"
       children:
         - title: Features
-          url: "docs/getting-started#getting-started"
-        - title: Development
-          url: "docs/getting-started#development"
-        - title: Customization
-          url: "docs/getting-started#customization"
-    - title: "Extras"
-      url: "docs/extras"
+          url: "docs/bind/features"
+        - title: Decorators
+          url: "docs/bind/decorators"
+        - title: API
+          url: "docs/bind/api"
+    - title: "Bind-Rest"
+      url: "docs/bind-rest"
       children:
-        - title: Quizzes?
-          url: "docs/extras/example-quiz"
-        - title: Tags Page
-          url: "tags"
-    - title: "About"
-      url: "about"
+        - title: Introduction
+          url: "docs/bind-rest/introduction"
+        - title: Decorators
+          url: "docs/bind-rest/decorators"
     - title: "News"
       url: "news"

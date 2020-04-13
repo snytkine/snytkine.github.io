@@ -35,7 +35,7 @@ github_repo: "bind"
 
 # Optional
 twitter: snytkine
-linkedin: vsochat
+#linkedin: vsochat
 #dockerhub: vanessa
 
 # Should there be feedback buttons at the bottom of pages?
