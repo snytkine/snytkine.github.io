@@ -65,7 +65,7 @@ themeColor: red # purple, green, blue, orange, purple, grey
 fixedNav: 'true' # true or false
 
 permalink: /:year/:title/
-#markdown: kramdown
+
 exclude: [_site, CHANGELOG.md, LICENSE, README.md, vendor]
 
 # Collections
@@ -74,25 +74,16 @@ collections:
     output: true
     permalink: /documentation/:collection/:path
     nav_title: Bind-Rest
-    order: 1
+    order: 2
 
   bind:
     output: true
     permalink: /documentation/:collection/:path
     nav_title: Bind
-    order: 2
-
-  docs:
-    output: true
-    permalink: /:collection/:path
+    order: 1
 
 # Defaults
 defaults:
-  - scope:
-      path: "_docs"
-      type: "docs"
-    values:
-      layout: page
   -
     scope:
       path: ""
@@ -105,6 +96,20 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+  -
+    scope:
+      path: ""
+      type: "bind_rest"
+    values:
+      layout: "page"
+
+  -
+    scope:
+      path: ""
+      type: "bind"
+    values:
+      layout: "page"
 
 #theme: jekyll-theme-minimal
 remote_theme: vsoch/docsy-jekyll

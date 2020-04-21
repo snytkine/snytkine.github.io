@@ -1,0 +1,39 @@
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+    {% include searchform.html %}
+    <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+        <ul class="td-sidebar-nav__section pr-md-3">
+            <li class="td-sidebar-nav__section-title">
+                Documentation
+            </li>
+            <ul>
+                {% assign colls = site.collections | sort: "order" %}
+                {% for coll in colls %}
+                {% if coll.nav_title %}
+                <li class="collapse show" id="{{ coll.nav_title | slugify }}">
+                    <ul class="td-sidebar-nav__section pr-md-3">
+                        <li class="td-sidebar-nav__section-title">
+                            {{ coll.nav_title }}
+                        </li>
+                        <ul>
+                            <li class="collapse show" id="links_{{ coll.nav_title | slugify }}">
+                                {% assign docs = coll.docs | sort: "order" %}
+                                {% for doc in docs %}
+                                <a class="td-sidebar-link td-sidebar-link__page"
+                                   id="m-{{ coll.nav_title | slugify }}-{{ doc.nav_title | slugify }}"
+                                   href="{{ doc.url }}">{{ doc.nav_title }}</a>
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    </ul>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% for navitem in site.data.navigation %}
+                <li class="td-sidebar-nav__section-title">
+                    <a href="/{{ navitem.url }}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ navitem.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </nav>
+</div>

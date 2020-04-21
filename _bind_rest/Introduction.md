@@ -1,4 +1,5 @@
 ---
+#layout: page
 title: Bind-Rest Features
 nav_title: Features
 order: 2
