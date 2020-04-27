@@ -79,7 +79,7 @@ collections:
   bind:
     output: true
     permalink: /documentation/:collection/:path
-    nav_title: Bind
+    nav_title: Bind-DI
     order: 1
 
 # Defaults
