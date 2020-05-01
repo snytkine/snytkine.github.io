@@ -1,6 +1,10 @@
 ---
 title: About
 permalink: /about/
+tags: 
+ - Component
+ - Inject
+ - container
 ---
 
 # About

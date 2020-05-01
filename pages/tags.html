@@ -7,7 +7,8 @@ permalink: /tags/
 {% capture site_tags %}{% for tag in site.tags %}{% if tag %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}{% endcapture %}{% assign docs_tags = "" %}{% for doc in site.docs %}{% assign ttags = doc.tags | join:',' | append:',' %}{% assign docs_tags = docs_tags | append:ttags %}{% endfor %}
 {% assign all_tags = site_tags | append:docs_tags %}{% assign tags_list = all_tags | split:',' | uniq | sort %}
 
-{% for tag in tags_list %}{% if tag %}<h3 id="{{ tag | replace: '/', '-' }}" class="linked-section">{{ tag }}</h3>
+{% for tag in tags_list %}{% if tag %}
+<div>{{ tag }}</div><h3 id="{{ tag | replace: '/', '-' }}" class="linked-section">{{ tag }}</h3>
 <div class="post-list" style="margin-bottom:40px">
     {% for post in site.tags[tag] %}<div class="tag-entry">
     <a href="{{- site.url -}}{{- post.url -}}">{{- post.title -}}</a>

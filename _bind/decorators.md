@@ -2,10 +2,6 @@
 title: Decorators
 nav_title: Decorators
 order: 3
-tags: 
- - Component
- - Inject
- - container
 description: Decorators
 ---
 

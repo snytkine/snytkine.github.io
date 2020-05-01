@@ -2,9 +2,6 @@
 title: Features
 nav_title: Features
 order: 2
-tags: 
- - bind
- - container
 description: Framework Features
 ---
 
@@ -232,7 +229,7 @@ for example a controller may call a helper method that sets the
 
 **this.currentUser** = userAccount
 
-Naturally it will be a disaster if the instance of such controller is shared between two or most different Http Requests.
+Naturally it will be a disaster if the instance of such controller is shared between two or more different Http Requests.
 
 There will be a potential for an async method to set the value this.currentUser then call another async method
 and while that other async method is being executed another request may come in and end up using this.currentUser value which was set previously for someone else.
@@ -275,7 +272,18 @@ export class WidgetStore {
 In the above example the WidgetStore now has a NEWINSTANCE scope. This means that Container will
 create a new instance of the class every time WidgetStore Component is requested.
 
-_There is a shortcut decorator @NewInstance that is equivalent to @Scope(ComponentScope.NEWINSTANCE)_
+_There is a shortcut decorator **@NewInstance** that is the equivalent of @Scope(ComponentScope.NEWINSTANCE)_
+
+_Another shortcut decorator **@Singleton** is the equivalent of @Scope(ComponentScope.SINGLETON)_
+
+Why do we need a @Singleton decorator when Singleton is the default Component Scope? There are couple of reasons.
+
+First, the default scope can be set to any other scope when the Container is created. (see "Usage")
+
+Seconds, a component can have own default Lifetime Scope. Such custom components are usually created by frameworks that use Bind-DI Framework. For example the Bind-Rest Framework
+has own decorators @Middleware and @Controller. These decorators under the hood simply apply the @Component decorator to the class but also set the default scope of **SINGLETON** for those components.
+
+In case where a component has own default scope, the components' own default scope takes precedence over Containers's default scope but such component can also be decorated with own @Scope decorator, in which case this explicit @Scope decorator will be the ultimate value of Scope for that component.
 
 Important note: a scope of dependency cannot be smaller than the scope of component.
 For example a Component that is **Singleton** cannot have dependency component (via @Inject or constructor dependency) with a scope NEWINSTANCE or REQUEST because that would not even make sense.

@@ -2,9 +2,6 @@
 title: Introduction
 nav_title: Introduction
 order: 1
-tags: 
- - bind
- - container
 description: Introduction and Concepts
 ---
 
