@@ -15,7 +15,7 @@ This also means that there is no need for any type of external configuration fil
 
 An important feature of **Bind-DI** Framework is auto-discovery and auto-loading of components from the file system.
 
-There are 3 phazes of container lifetime.
+There are 3 phases of container lifetime.
 
 | Phase | What takes place |  
 | ---- | ---- |
