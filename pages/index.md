@@ -5,6 +5,7 @@ permalink: /
 ---
 
 # Welcome to Bind Framework
+## Modern Open-Sourced Dependency Injection Framework for JavaScript written in Typescript.
 
 ## Purpose
 
@@ -21,6 +22,5 @@ Briefly:
  - *Almost 100% test coverage.* Over 200 Unit tests ensure that frameworks works as designed. We tried to cover all the scenarios and edge cases.
 
 
-For features, getting started with development, see the {% include doc.html name="Getting Started" path="getting-started" %} page. 
 Would you like to request a feature or contribute?
 [Open an issue]({{ site.repo }}/issues)

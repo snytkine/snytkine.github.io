@@ -15,13 +15,14 @@ This also means that there is no need for any type of external configuration fil
 
 An important feature of **Bind-DI** Framework is auto-discovery and auto-loading of components from the file system.
 
-There are 3 phases of container lifetime.
+## 4 phases of container lifecycle
 
 | Phase | What takes place |  
 | ---- | ---- |
 | Loading | Recursively scan directories, discover exported classes that are decorated with @Component or with other related decorators. Add components to Container<br>The discovery and loading of classes from file system is synchronous operation. |
 | Initialization | 1. Validate that all loaded components that have dependencies (via @Inject or via implicit constructor dependencies) can find all dependencies in container. <br>2. Validate that there are no dependency loops.<br>3. Instantiate all components that have _@PostConstruct_ decorator and call these post-construct methods and wait for Promise(s) returned from post-construct to resolve. Only after every post-construct method has resolved the initialize() method itself is resolved. <br>At this point container is ready for use.|
 | Runtime | In this phase **Container** is responsible for returning components to the client. The client uses .getComponent method, passing **Identity** of requested component and **Container** returns instance of requested component, complete with all necessary component dependencies.|
+| Cleanup | When application exits its recommended to call container.cleanup() method. This method calls methods decorated with **@PreDestroy** on all components. When all Promises returned by these methods resolved the Promise returned by cleanup() method is resolved. This gives Components a chance to close DB connections, release other resources as necessary |
 
 # An Example
 
@@ -183,5 +184,29 @@ container.cleanup()
 
 That call is important because it causes all components that have **@PreDestroy** method to run these methods.
 
-This give a container a chance to make sure that all components that need to close database connections of close any open resources to close such resources when application exits.
+This gives a container a chance to make sure that all components that need to close database connections of close any open resources to close such resources when application exits.
+
+The Interesting lines inside the run() method are these:
+
+```typescript
+const db: MongoComponent = container.getComponent(Identity(MongoComponent));
+const logger = container.getComponent(Identity(Logger));
+```
+
+We ask a container for an instance of MongoComponent class. We do this by passing the _Identity_ of component
+
+The _Identity_ is a function that takes either a Class for an unnamed component or a **string** or **Symbol** for a named component.
+
+The Container's job is the return an instance of Component, creating the instance if necessary or returning already existing instance if it's a Singleton Component.
+
+During the creation if instance the Container will create the Instances of other components needed as constructor dependencies. After the instance is created the Container will then call property assignment operations, setting the Instance's properties or setter methods (setters are invoked via same property assignments) for the Component properties decorated with **@Inject** decorator
+
+### @EnvOverride
+Notice that Settings component has **@EnvOverride** decorator.
+
+This allows us to override the property values by setting these values via environment variables.
+
+For example if we first export environment variable **MONGO_URI** before starting the app, then when the instance of Settings component will return this new value when asked via settings.MONGO_URI
+
+This is a convenient way to define default configuration in the Settings class but also to be able to override the values from Environment without the need to change the code. All that is needed is to export new environment variables and restart application.
 
